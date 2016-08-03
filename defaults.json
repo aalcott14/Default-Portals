@@ -1,0 +1,172 @@
+[{
+	"name": "empty",
+	"value": {
+		"version": 1,
+		"allow_edit": true,
+		"plugins": [],
+		"panes": [{
+			"title": "Empty Dashboard",
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": "3",
+			"widgets": [{
+				"type": "text_widget",
+				"settings": {
+					"size": "regular",
+					"value": "Dashboard Name",
+					"animate": true
+				}
+			}]
+		}],
+		"datasources": [],
+		"columns": 3
+	}
+}, {
+	"name": "factory",
+	"value": {
+		"version": 1,
+		"allow_edit": true,
+		"plugins": [],
+		"panes": [{
+			"title": "Factory Dashboard",
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": "3",
+			"widgets": [{
+				"type": "text_widget",
+				"settings": {
+					"title": "Omaha Factory",
+					"size": "regular",
+					"value": "Control Room  1",
+					"animate": true
+				}
+			}]
+		}, {
+			"title": "Dial",
+			"width": 1,
+			"row": {
+				"3": 5,
+				"5": 5
+			},
+			"col": {
+				"3": 1,
+				"5": 1
+			},
+			"col_width": 1,
+			"widgets": [{
+				"type": "dial_widget",
+				"settings": {
+					"dial_name": "Cooler Speed Controller",
+					"topic_name": "JSON.parse(datasources[\"dialMessageTopic\"])",
+					"device_id": "dial1"
+				}
+			}]
+		}, {
+			"title": "Mobile",
+			"width": 1,
+			"row": {
+				"3": 5,
+				"5": 5
+			},
+			"col": {
+				"3": 2,
+				"5": 2
+			},
+			"col_width": 1,
+			"widgets": [{
+				"type": "simple_button",
+				"settings": {
+					"buttonLabel": "High",
+					"inputDataSource": "datasources[\"mobileMessageTopic\"]",
+					"targetDataSource": "datasources[\"mobileMessageTopic\"]",
+					"size": "regular"
+				}
+			}, {
+				"type": "simple_button",
+				"settings": {
+					"buttonLabel": "Medium",
+					"inputDataSource": "datasources[\"mobileMessageTopic\"]",
+					"targetDataSource": "datasources[\"mobileMessageTopic\"]",
+					"size": "regular"
+				}
+			}, {
+				"type": "simple_button",
+				"settings": {
+					"buttonLabel": "Low",
+					"inputDataSource": "datasources[\"mobileMessageTopic\"]",
+					"targetDataSource": "datasources[\"mobileMessageTopic\"]",
+					"size": "regular"
+				}
+			}, {
+				"type": "simple_button",
+				"settings": {
+					"buttonLabel": "Off",
+					"inputDataSource": "datasources[\"mobileMessageTopic\"]",
+					"targetDataSource": "datasources[\"mobileMessageTopic\"]",
+					"size": "regular"
+				}
+			}]
+		}, {
+			"title": "Temperature Indicator",
+			"width": 1,
+			"row": {
+				"3": 5,
+				"5": 5
+			},
+			"col": {
+				"3": 3,
+				"5": 3
+			},
+			"col_width": 1,
+			"widgets": [{
+				"type": "gauge",
+				"settings": {
+					"title": "Temperature",
+					"value": "datasources[\"temperatureMessageTopic\"]",
+					"units": "Fahrenheit",
+					"min_value": 0,
+					"max_value": "400"
+				}
+			}, {
+				"type": "novi_input",
+				"settings": {
+					"sectionTitle": "Input Temperature",
+					"inputType": "text",
+					"value": "datasources[\"temperatureMessageTopic\"]",
+					"size": "regular",
+					"inputName": "Input-Temperature"
+				}
+			}]
+		}],
+		"datasources": [{
+			"name": "dialMessageTopic",
+			"type": "messageTopic",
+			"settings": {
+				"topic_name": "device/dial1"
+			}
+		}, {
+			"name": "mobileMessageTopic",
+			"type": "messageTopic",
+			"settings": {
+				"topic_name": "device/mobile1"
+			}
+		}, {
+			"name": "temperatureMessageTopic",
+			"type": "messageTopic",
+			"settings": {
+				"topic_name": "device/temperatureSensor"
+			}
+		}],
+		"columns": 3
+	}
+}]
