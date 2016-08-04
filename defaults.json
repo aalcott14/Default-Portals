@@ -3,6 +3,39 @@
         "version": 1,
         "allow_edit": true,
         "plugins": [],
+        "style": {
+            "portal" : {
+                    "background" : "#1F3845",
+                    "fontFamily" : "\"Lucida Sans Unicode\", \"Lucida Grande\", sans-serif"
+                },
+            "panes"  : {
+                    "backgroundColor"                 : "#2a2a2a",
+                    "border"                          : "thin solid #2a2a2a",
+                    "headingHeight"                   : "30px",
+                    "primaryHeadingBackgroundColor"   : "#607D8B",
+                    "primaryHeadingFontSize"          : "16px",
+                    "primaryHeadingTextColor"         : "#FFFFFF",
+                    "secondaryHeadingBackgroundColor" : "#263238",
+                    "secondaryHeadingFontSize"        : "16px",
+                    "secondaryHeadingTextColor"       : "#FFFFFF"
+                },
+            "widgets": {
+                    "background"        : "transparent",
+                    "blockSize"         : "60",
+                    "bodyFontSize"      : "12px",
+                    "bodyTextColor"     : "#FFFFFF",
+                    "border"            : "thin solid transparent",
+                    "headingFontSize"   : "18px",
+                    "headingFontWeight" : "400",
+                    "headingTextColor"  : "#5EA7CF"
+                },
+            "forms"  : {
+                    "numberInputBackgroundColor": "",
+                    "numberInputTextColor"      : "",
+                    "textInputBackgroundColor"  : "",
+                    "textInputTextColor"        : ""
+                }
+        },
         "panes": [{
             "title": "Empty Dashboard",
             "width": 1,
@@ -12,6 +45,8 @@
             "col": {
                 "3": 1
             },
+            "display_header" : false,
+            "header_theme" : "primary",
             "col_width": "3",
             "widgets": [{
                 "type": "text_widget",
@@ -29,6 +64,39 @@
         "version": 1,
         "allow_edit": true,
         "plugins": [],
+        "style": {
+            "portal" : {
+                    "background" : "#1F3845",
+                    "fontFamily" : "\"Lucida Sans Unicode\", \"Lucida Grande\", sans-serif"
+                },
+            "panes"  : {
+                    "backgroundColor"                 : "#2a2a2a",
+                    "border"                          : "thin solid #2a2a2a",
+                    "headingHeight"                   : "30px",
+                    "primaryHeadingBackgroundColor"   : "#607D8B",
+                    "primaryHeadingFontSize"          : "16px",
+                    "primaryHeadingTextColor"         : "#FFFFFF",
+                    "secondaryHeadingBackgroundColor" : "#263238",
+                    "secondaryHeadingFontSize"        : "16px",
+                    "secondaryHeadingTextColor"       : "#FFFFFF"
+                },
+            "widgets": {
+                    "background"        : "transparent",
+                    "blockSize"         : "60",
+                    "bodyFontSize"      : "12px",
+                    "bodyTextColor"     : "#FFFFFF",
+                    "border"            : "thin solid transparent",
+                    "headingFontSize"   : "18px",
+                    "headingFontWeight" : "400",
+                    "headingTextColor"  : "#5EA7CF"
+                },
+            "forms"  : {
+                    "numberInputBackgroundColor": "",
+                    "numberInputTextColor"      : "",
+                    "textInputBackgroundColor"  : "",
+                    "textInputTextColor"        : ""
+                }
+        },
         "panes": [{
             "title": "Factory Dashboard",
             "width": 1,
@@ -59,6 +127,8 @@
                 "3": 1,
                 "5": 1
             },
+            "display_header" : false,
+            "header_theme" : "primary",
             "col_width": 1,
             "widgets": [{
                 "type": "dial_widget",
