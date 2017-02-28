@@ -1,0 +1,406 @@
+{
+  "grouping_edge_list": {
+    "version": 1,
+    "allow_edit": true,
+    "plugins": [],
+    "panes": [{
+      "pane_type": false,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 1,
+        "4": 5
+      },
+      "col": {
+        "3": 2,
+        "4": 2
+      },
+      "col_width": 1,
+      "tabs": [{
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "var uptime = this.datasource.stats[\"uptime(min)\"];\n\nvar fullUptimeString = \"\";\n\n\nvar hours = uptime.substring(0, uptime.indexOf(\"h\"));\n\nvar index = 0;\nif (hours !== \"\") {\n    fullUptimeString += hours + \"h\";\n    index = uptime.indexOf(\"h\") + 1;\n}\n\nvar mins = uptime.substring(index, uptime.indexOf(\"m\"));\n\nfullUptimeString += \" \" + mins + \"m\";\n\nvar container = $(\"<div style='margin-top: auto; margin-bottom: auto; height: 50%; padding:5px'></div>\");\ncontainer.append($(\"<h2>\").html(\"Uptime\").css({\"text-align\": \"center\"}).addClass(\"section-title\"));\ncontainer.append($(\"<div>\").html(fullUptimeString).css({\"text-align\": \"center\", \"font-size\": \"40px\",\"padding-top\": \"50px\"}));\n\nreturn container;"
+            }],
+            "height": 3,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": false,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 1,
+        "4": 5
+      },
+      "col": {
+        "3": 3,
+        "4": 3
+      },
+      "col_width": 1,
+      "tabs": [{
+        "widgets": [{
+          "type": "gauge",
+          "settings": {
+            "title": "CPU",
+            "gauge_style": 1,
+            "gauge_varient": 0,
+            "_datatype": "dynamic",
+            "gaugeVal": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \nreturn Math.round(parseFloat(this.datasource.stats[\"cpu(%)\"]));"
+            }],
+            "units": "",
+            "min_value": 0,
+            "max_value": 100,
+            "title_color": "#5EA7CF",
+            "gauge_segments": "[{\"color\":\"green\"}, {\"color\":\"#cccccc\"}]",
+            "needle_color": "black",
+            "label_color": "rgba(0, 0, 0, 0)",
+            "block_height": 2,
+            "container_width": "100"
+          }
+        }, {
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \nvar cpu = Math.round(parseFloat(this.datasource.stats[\"cpu(%)\"]));\n\n\nreturn $(\"<div>\").html(cpu + \"%\").css({\"text-align\": \"center\", \"font-size\": \"30px\", \"color\": \"black\"});"
+            }],
+            "height": 1,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": false,
+      "title": "",
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 9,
+        "4": 5,
+        "5": 1
+      },
+      "col": {
+        "3": 2,
+        "4": 4,
+        "5": 3
+      },
+      "col_width": 1,
+      "tabs": [{
+        "widgets": [{
+          "type": "sparkline",
+          "settings": {
+            "title": "Memory",
+            "_datatype": "dynamic",
+            "sources": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \nreturn Math.round(parseFloat(this.datasource.stats[\"memUsed(%)\"]));"
+            }],
+            "container_width": "100"
+          }
+        }, {
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \nvar memUsed = Math.round(parseFloat(this.datasource.stats[\"memUsed(%)\"]));\n\n\nreturn $(\"<div>\").html(memUsed + \"%\").css({\"text-align\": \"center\", \"font-size\": \"30px\", \"color\": \"black\"});"
+            }],
+            "height": 1,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": false,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 9,
+        "4": 13,
+        "5": 1
+      },
+      "col": {
+        "3": 3,
+        "4": 4,
+        "5": 3
+      },
+      "col_width": 1,
+      "tabs": [{
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "var numDBConns = this.datasource.dbconns ? this.datasource.dbconns.length : 0;\n\nvar container = $(\"<div style='margin-top: auto; margin-bottom: auto; height: 100%; padding:5px'></div>\");\ncontainer.append($(\"<h2>\").html(\"DB Connections\").css({\"text-align\": \"center\"}).addClass(\"section-title\"));\ncontainer.append($(\"<div>\").html(numDBConns).css({\"text-align\": \"center\", \"font-size\": \"40px\",\"padding-top\": \"50px\"}));\n\nreturn container;"
+            }],
+            "height": 3,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": false,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 19,
+        "4": 13,
+        "7": 19
+      },
+      "col": {
+        "3": 2,
+        "4": 2,
+        "7": 2
+      },
+      "col_width": 1,
+      "tabs": [{
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "var freeDisk = Math.round(parseFloat(this.datasource.stats[\"diskFree(GB)\"]));\n\nvar container = $(\"<div style='margin-top: auto; margin-bottom: auto; height: 100%; padding:5px'></div>\");\ncontainer.append($(\"<h2>\").html(\"Free Disk Space\").css({\"text-align\": \"center\"}).addClass(\"section-title\"));\ncontainer.append($(\"<div>\").html(freeDisk + \" GB\").css({\"text-align\": \"center\", \"font-size\": \"40px\",\"padding-top\": \"50px\"}));\n\nreturn container;"
+            }],
+            "height": 3,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": false,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 19,
+        "4": 13,
+        "7": 19
+      },
+      "col": {
+        "3": 3,
+        "4": 3,
+        "7": 3
+      },
+      "col_width": 1,
+      "tabs": [{
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \nvar triggers = this.datasource.stats.triggered;\n\n//{backlog: 0, dropped: 0, failed: 0, succeeded: 0}\n\nvar container = $(\"<div style='margin-top: auto; margin-bottom: auto; height: 100%; padding:5px'></div>\");\ncontainer.append($(\"<h2>\").html(\"Triggers\").css({\"text-align\": \"center\"}).addClass(\"section-title\"));\ncontainer.append($(\"<div>\").html(\"Backlog: \" + triggers.backlog).css({\"text-align\": \"left\", \"font-size\": \"25px\", \"padding-top\": \"15px\"}));\ncontainer.append($(\"<div>\").html(\"Dropped: \" + triggers.dropped).css({\"text-align\": \"left\", \"font-size\": \"25px\"}));\ncontainer.append($(\"<div>\").html(\"Failed: \" + triggers.failed).css({\"text-align\": \"left\", \"font-size\": \"25px\"}));\ncontainer.append($(\"<div>\").html(\"Succeeded: \" + triggers.succeeded).css({\"text-align\": \"left\", \"font-size\": \"25px\"}));\n\n/*\nvar container = $(\"<div style='margin-top: auto; margin-bottom: auto; height: 100%; padding:10px'></div>\");\ncontainer.append($(\"<h2>\").html(\"Free Disk Space\").css({\"text-align\": \"center\"}).addClass(\"section-title\"));\ncontainer.append($(\"<div>\").html(freeDisk + \" GB\").css({\"text-align\": \"center\", \"font-size\": \"40px\",\"padding-top\": \"40px\"}));\n*/\n\nreturn container;\n"
+            }],
+            "height": 3,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": false,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 37,
+        "4": 1
+      },
+      "col": {
+        "3": 1,
+        "4": 2
+      },
+      "col_width": "3",
+      "tabs": [{
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "selectedEdge",
+              "_debug": false,
+              "incoming_parser": "return $(\"<h2>\").html(this.datasource.name).css({\"text-align\": \"center\",\"font-size\": \"45px\"});"
+            }],
+            "height": 1,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": false,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "4": 1,
+        "5": 40
+      },
+      "col": {
+        "4": 1,
+        "5": 2
+      },
+      "col_width": 1,
+      "tabs": [{
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "static",
+            "widgetContent": "<i class=\"material-icons\" style=\"font-size:60px;text-align:center;width:100%;\">router</i>",
+            "height": 1,
+            "container_width": "100"
+          }
+        }, {
+          "type": "grouping_list",
+          "settings": {
+            "list_name": "",
+            "_datatype": "dynamic",
+            "list_data": [{
+              "dsName": "allEdges",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \nreturn this.datasource;"
+            }],
+            "selected_item": [{
+              "dsName": "selectedEdge",
+              "_debug": false,
+              "outgoing_parser": "// default - return the value for the widget \nreturn this.widget;"
+            }],
+            "status_attribute": "isConnected",
+            "group_by_attributes": "[\"type\",\"state\",\"city\"]",
+            "block_height": 18,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": false,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 41,
+        "4": 21,
+        "5": 41
+      },
+      "col": {
+        "3": 1,
+        "4": 2,
+        "5": 1
+      },
+      "col_width": "3",
+      "tabs": [{
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "selectedEdge",
+              "_debug": false,
+              "incoming_parser": "var maxPerRow = 4;\nvar backgroundColor = \"green\";\nvar textColor = \"white\";\n\nvar displayOptionsForKey = {\n    \"broker_auth_port\": {\n        \"displayName\": \"Broker Auth Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"broker_port\": {\n        \"displayName\": \"Broker Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"broker_tls_port\": {\n        \"displayName\": \"Broker TLS Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"broker_ws_auth_port\": {\n    \t\"displayName\": \"Broker WS Auth Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n\t},\n    \"broker_ws_port\": {\n        \"displayName\": \"Broker WS Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"broker_wss_port\": {\n        \"displayName\": \"Broker WSS Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"communication_style\": {\"ignore\": true},\n    \"description\": {\n        \"displayName\": \"Description\",\n        \"displayIfEmpty\": false,\n        \"group\": \"base\"\n    },\n    \"edge_key\": {\"ignore\": true},\n    \"first_talked\": {\"ignore\": true},\n    \"isConnected\": {\"ignore\": true},\n    \"last_seen_version\": {\n        \"displayName\": \"Version\",\n        \"displayIfEmpty\": true,\n        \"group\": \"base\"\n    },\n    \"last_talked\": {\"ignore\": true},\n    \"local_addr\": {\n        \"displayName\": \"Address\",\n        \"displayIfEmpty\": true,\n        \"icon\": \"language\",\n        \"group\": \"base\"\n    },\n    \"local_port\": {\n        \"displayName\": \"Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"location\": {\n        \"displayName\": \"Location\",\n        \"displayIfEmpty\": false,\n        \"group\": \"base\"\n    },\n    \"mac_address\": {\n        \"displayName\": \"MAC Address\",\n        \"displayIfEmpty\": false,\n        \"group\": \"base\",\n        \"ignore\": true\n    },\n    \"name\": {\"ignore\": true},\n    \"novi_system_key\": {\"ignore\": true},\n    \"policy_name\": {\"ignore\": true},\n    \"public_addr\": {\n        \"displayName\": \"Public Address\",\n        \"displayIfEmpty\": false,\n        \"icon\": \"language\",\n        \"group\": \"base\"\n    },\n    \"public_port\": {\n        \"displayName\": \"Public Port\",\n        \"displayIfEmpty\": false,\n        \"group\": \"ports\"\n    },\n    \"resolver_func\": {\"ignore\": true},\n    \"sync_edge_tables\": {\"ignore\": true},\n    \"system_key\": {\"ignore\": true},\n    \"system_secret\": {\"ignore\": true}\n};\n\n//first build an array of what we want to display, so we can have a count\n/*\nvar thingsToDisplay = [];\n$.each(this.datasource, function(propName, value) {\n    if (propName in displayOptionsForKey) {\n        if (!displayOptionsForKey[propName].ignore) {\n            if ((value === undefined || value === null || value === \"undefined\") && displayOptionsForKey[propName].displayIfEmpty) {\n                console.log('value is undefined but still displaying');\n                var displayObj = {\n                    \"key\": propName,\n                \t\"name\": displayOptionsForKey[propName].displayName,\n                \t\"value\": value\n            \t}\n            \tthingsToDisplay.push(displayObj);\n            } else if (value !== undefined && value !== null && value !== \"undefined\") {\n                console.log(\"value is defined\");\n                var displayObj = {\n                    \"key\": propName,\n                \t\"name\": displayOptionsForKey[propName].displayName,\n                \t\"value\": value\n            \t}\n            \tthingsToDisplay.push(displayObj);\n            }\n        }\n    } else {\n        var displayObj = {\n            \"key\": propName,\n            \"name\": propName,\n            \"value\": value\n        };\n        thingsToDisplay.push(displayObj);\n    }\n});\n\nvar container = $(\"<table>\").css({\"width\":\"100%\",\"border-spacing\": \"5px\", \"border-collapse\": \"separate\"});\n\nvar numOfRowsNeeded = Math.ceil(thingsToDisplay.length / maxPerRow);\n\nvar index = 0;\nfor (var x = 1; x <= numOfRowsNeeded; x++) {\n    var row = $(\"<tr>\");\n    for (var y = 1; y <= maxPerRow; y++) {\n        if (index == thingsToDisplay.length){break;}\n        var cell = $(\"<td>\").html(thingsToDisplay[index].name + \": \" + thingsToDisplay[index].value);\n        cell.css({\"background-color\": backgroundColor, \"color\": textColor, \"padding\": \"10px\", \"font-size\": \"16px\",\"border-radius\": \"10px\"});\n        if (displayOptionsForKey[thingsToDisplay[index].key] && displayOptionsForKey[thingsToDisplay[index].key].icon) {\n            cell.append($(\"<i>\" + displayOptionsForKey[thingsToDisplay[index].key].icon + \"</i>\").addClass(\"material-icons\").css({\"float\": \"right\"}));\n        }\n        row.append(cell);\n        index++;\n    }\n    container.append(row);\n}\n*/\nvar that = this;\nvar container = $(\"<div>\");\n\nfunction buildGroup(groupKey, groupDisplayName, stylingForItems) {\n    var group = $(\"<div>\").text(groupDisplayName);\n    var table = $(\"<table>\").css({\"width\":\"100%\",\"border-spacing\": \"5px\", \"border-collapse\": \"separate\"});\n    \n    var numOfItems = 0;\n    var row = $(\"<tr>\");\n    \n    //lets loop through all props provided via datasource\n    $.each(that.datasource, function (propName, value) {\n        //first check group\n        if (propName in displayOptionsForKey) {\n            if (!displayOptionsForKey[propName].ignore) {\n                if (displayOptionsForKey[propName].group === groupKey) {\n                    //see if we need to make a new row\n                    if (numOfItems > 0 && numOfItems % maxPerRow === 0) {\n                        //append the existing row\n                        table.append(row);\n                        row = $(\"<tr>\");\n                    }\n                    var cell = $(\"<td>\").html(displayOptionsForKey[propName].displayName + \": \" + that.datasource[propName]);\n                    cell.css(stylingForItems);\n                    if (displayOptionsForKey[propName].icon) {\n                        cell.append($(\"<i>\" + displayOptionsForKey[propName].icon + \"</i>\").addClass(\"material-icons\").css({\"float\": \"right\"}));\n                    }\n                    row.append(cell);\n                    numOfItems++;\n                }\n            }\n        } else {\n            //no options defined, treat as custom\n            if (groupKey === \"custom\") {\n                if (numOfItems > 0 && numOfItems % maxPerRow === 0) {\n                    //append the existing row\n                    table.append(row);\n                    row = $(\"<tr>\");\n                }\n                var cell = $(\"<td>\").html(propName + \": \" + that.datasource[propName]);\n                cell.css(stylingForItems);\n                row.append(cell);\n                numOfItems++;\n            }\n        }\n    });\n    \n    table.append(row);\n    group.append(table);\n    return group;\n}\n\n//cell.css({\"background-color\": backgroundColor, \"color\": textColor, \"padding\": \"10px\", \"font-size\": \"16px\",\"border-radius\": \"10px\"});\n\ncontainer.append(buildGroup(\"base\", \"Base\", {\"padding\": \"10px\", \"font-size\": \"16px\", \"border-radius\": \"10px\", \"border\": \"1px solid black\"}));\ncontainer.append(buildGroup(\"ports\", \"Ports\", {\"padding\": \"10px\", \"font-size\": \"16px\", \"border-radius\": \"10px\", \"background-color\": \"#6E8592\", \"color\": \"white\"}));\ncontainer.append(buildGroup(\"custom\", \"Custom\", {\"padding\": \"10px\", \"font-size\": \"16px\", \"border-radius\": \"10px\", \"background-color\": \"#4A4A4A\", \"color\": \"white\"}));\n\n\n\nreturn container;"
+            }],
+            "height": 5,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": true,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 47,
+        "4": 33,
+        "7": 47
+      },
+      "col": {
+        "3": 1,
+        "4": 2,
+        "7": 1
+      },
+      "col_width": "3",
+      "tabs": [{
+        "title": "Logs - Std Out",
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \nreturn this.datasource.logs.stdout;"
+            }],
+            "height": 4,
+            "container_width": "100"
+          }
+        }]
+      }, {
+        "title": "Logs - Std Err",
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \nreturn this.datasource.logs.stderr;"
+            }],
+            "height": 4,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }],
+    "datasources": [{
+      "name": "allEdges",
+      "type": "edge_list",
+      "settings": {
+        "refresh_time": "50000"
+      }
+    }, {
+      "name": "selectedEdge",
+      "type": "dashboardEvent",
+      "settings": {}
+    }, {
+      "name": "edgeMetrics",
+      "type": "edge_metrics",
+      "settings": {
+        "refresh_time": "5000",
+        "_datatype": "dynamic",
+        "edge_name": [{
+          "dsName": "selectedEdge",
+          "_debug": false,
+          "incoming_parser": "// default - return the value for the datasource \nreturn this.datasource.name;"
+        }]
+      }
+    }],
+    "columns": 4,
+    "userPerms": {
+      "editableAttributes": {},
+      "passwordMod": false
+    },
+    "style": "{\"portal\":{\"background\":\"rgba(255,255,255,1)\",\"fontFamily\":\"\\\"Helvetica Neue\\\",Helvetica,Arial,sans-serif\"},\"panes\":{\"headingHeight\":\"30px\",\"primaryBackgroundColor\":\"#f5f5f5\",\"primaryHeadingBackgroundColor\":\"#6E8592\",\"primaryHeadingFontSize\":\"16px\",\"primaryHeadingTextColor\":\"#f5f5f5\",\"primaryBorder\":\"2px solid #D8D8D8\",\"primaryBorderRadius\":\"4px\",\"primaryBoxShadow\":\"rgba(0,0,0,.2) 5px 5px 7px 0\",\"secondaryBackgroundColor\":\"rgba(110,133,146,1)\",\"secondaryHeadingBackgroundColor\":\"rgba(245,245,245,1)\",\"secondaryHeadingFontSize\":\"16px\",\"secondaryHeadingTextColor\":\"#6E8592\",\"secondaryBorder\":\"2px solid rgba(110,133,146,1)\",\"secondaryBorderRadius\":\"4px\",\"secondaryBoxShadow\":\"rgba(0,0,0,.2) 5px 5px 7px 0\",\"tabBackgroundColor\":\"rgba(221,221,221,1)\",\"tabTextColor\":\"rgba(51,51,51,1)\",\"activeTabTextColor\":\"rgba(51,51,51,1)\",\"activeTabUnderlineColor\":\"#6E8592\",\"border\":\"\"},\"widgets\":{\"background\":\"transparent\",\"headingFontSize\":\"18px\",\"headingTextColor\":\"rgba(51,51,51,1)\",\"headingFontWeight\":\"400\",\"border\":\"thin solid transparent\",\"bodyFontSize\":\"12px\",\"bodyTextColor\":\"rgba(0,0,0,1)\"},\"forms\":{\"formBackground\":\"rgba(221,221,221,1)\",\"textInputBackgroundColor\":\"#f5f5f5\",\"textInputTextColor\":\"rgba(51,51,51,1)\",\"numberInputBackgroundColor\":\"#f5f5f5\",\"numberInputTextColor\":\"rgba(51,51,51,1)\"},\"listWidget\":{\"backgroundColor\":\"transparent\",\"itemColor\":\"rgba(0,0,0,1)\",\"hoverBackgroundColor\":\"rgba(221,221,221,1)\",\"hoverTextColor\":\"rgba(0,0,0,1)\",\"activeBackgroundColor\":\"#607d8b\",\"activeTextColor\":\"#f5f5f5\"}}"
+  }
+}
