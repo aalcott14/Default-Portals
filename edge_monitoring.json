@@ -1,0 +1,526 @@
+{
+  "grouping_edge_list": {
+    "version": 1,
+    "allow_edit": true,
+    "plugins": [],
+    "panes": [{
+      "pane_type": false,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 1,
+        "4": 1
+      },
+      "col": {
+        "3": 1,
+        "4": 1
+      },
+      "col_width": "4",
+      "tabs": [{
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "static",
+            "widgetContent": "<div><img src=\"../img/company-logo.png\" style=\"width:20%;\"/><span style=\"font-size:30px\">EDGE Monitor</span><span style=\"margin-left:100px;font-size:15px\">System:</span><span style=\"font-size:30px\">System Name Will Go Here</span></div>",
+            "height": 1,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": false,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 5,
+        "4": 43,
+        "5": 5
+      },
+      "col": {
+        "3": 1,
+        "4": 2,
+        "5": 1
+      },
+      "col_width": 1,
+      "tabs": [{
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "var uptime = this.datasource.stats[\"uptime(min)\"];\n\nvar fullUptimeString = \"\";\n\n\nvar hours = uptime.substring(0, uptime.indexOf(\"h\"));\n\nvar index = 0;\nif (hours !== \"\") {\n    fullUptimeString += hours + \" hours\";\n    index = uptime.indexOf(\"h\") + 1;\n}\n\nvar mins = uptime.substring(index, uptime.indexOf(\"m\"));\n\nfullUptimeString += \" \" + mins + \" minutes\";\n\nvar container = $(\"<div style='margin-top: auto; margin-bottom: auto; height: 50%; padding:5px'></div>\");\nvar header = $(\"<h2>\").addClass(\"section-title\").html(\"<i class='material-icons' style='font-size:20px;'>arrow_upward</i> Uptime\").css({\"text-align\": \"center\"});\ncontainer.append(header);\ncontainer.append($(\"<div>\").html(fullUptimeString).css({\"text-align\": \"center\", \"font-size\": \"40px\",\"padding-top\": \"50px\"}));\n\nreturn container;"
+            }],
+            "height": 3,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": false,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 5,
+        "4": 23,
+        "6": 5
+      },
+      "col": {
+        "3": 2,
+        "4": 3,
+        "6": 2
+      },
+      "col_width": 1,
+      "tabs": [{
+        "widgets": [{
+          "type": "gauge",
+          "settings": {
+            "title": "<i class='material-icons'>memory</i> CPU",
+            "gauge_style": 1,
+            "gauge_varient": 0,
+            "_datatype": "dynamic",
+            "gaugeVal": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \nreturn Math.round(parseFloat(this.datasource.stats[\"cpu(%)\"]));"
+            }],
+            "units": "",
+            "min_value": 0,
+            "max_value": 100,
+            "title_color": "#5EA7CF",
+            "gauge_segments": "[{\"color\":\"green\"}, {\"color\":\"#cccccc\"}]",
+            "needle_color": "black",
+            "label_color": "rgba(0, 0, 0, 0)",
+            "block_height": 3,
+            "container_width": "100"
+          }
+        }, {
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \nvar cpu = Math.round(parseFloat(this.datasource.stats[\"cpu(%)\"]));\n\n\nreturn $(\"<div>\").html(cpu + \"%\").css({\"text-align\": \"center\", \"font-size\": \"30px\", \"color\": \"black\"});"
+            }],
+            "height": 2,
+            "container_width": "100"
+          }
+        }, {
+          "type": "lineGraph",
+          "settings": {
+            "_datatype": "dynamic",
+            "data": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \n\nvar cpuHistory = this.datasource.history[\"cpu(%)\"];\n\nvar output = [];\n\n$.each(cpuHistory, function (propName, value) {\n    var obj = {\n        x: propName,\n        y: value\n    };\n    output.push(obj);\n});\n\nreturn output;"
+            }],
+            "sizeInBlocks": 4,
+            "rangeTitle": "%",
+            "domainTitle": "",
+            "title_color": "#5EA7CF",
+            "axis_color": "#CCCCCC",
+            "line_color": "#5EA7CF",
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": false,
+      "title": "",
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 5,
+        "4": 23,
+        "5": 9,
+        "6": 5
+      },
+      "col": {
+        "3": 3,
+        "4": 4,
+        "5": 2,
+        "6": 3
+      },
+      "col_width": 1,
+      "tabs": [{
+        "widgets": [{
+          "type": "pieChart",
+          "settings": {
+            "graphTitle": "<i class=\"material-icons\" style=\"font-size:20px;\">sim_card</i> Memory",
+            "_datatype": "dynamic",
+            "data": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "var memUsed = this.datasource.stats[\"memUsed(%)\"] ;\n\nreturn [{x: null, y: memUsed}, {x: null, y: 100 - memUsed}];"
+            }],
+            "include_legend": false,
+            "sizeInBlocks": 4,
+            "colors": "[\"#6E8592\", \"rgb(204, 204, 204)\"]",
+            "label_color": "#000000",
+            "container_width": "100"
+          }
+        }, {
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \nvar memUsed =  Math.round((this.datasource.stats[\"memUsed(%)\"]/100) * this.datasource.stats[\"totalMem(GB)\"] * 1024);\n\nreturn $(\"<div>\").html(memUsed + \" MB\").css({\"text-align\": \"center\", \"font-size\": \"30px\", \"color\": \"black\"});"
+            }],
+            "height": 1,
+            "container_width": "100"
+          }
+        }, {
+          "type": "lineGraph",
+          "settings": {
+            "_datatype": "dynamic",
+            "data": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \n\nvar memHistory = this.datasource.history[\"memUsed(%)\"];\nvar totalMem = this.datasource.history[\"totalMem(GB)\"];\n\nvar output = [];\n\n$.each(memHistory, function (propName, value) {\n    var obj = {\n        x: propName,\n        y: totalMem * (value/100)\n    };\n    output.push(obj);\n});\n\nreturn output;"
+            }],
+            "sizeInBlocks": 4,
+            "rangeTitle": "GB",
+            "domainTitle": "",
+            "title_color": "#5EA7CF",
+            "axis_color": "#CCCCCC",
+            "line_color": "#5EA7CF",
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": false,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 25,
+        "4": 43,
+        "5": 1,
+        "6": 25
+      },
+      "col": {
+        "3": 3,
+        "4": 4,
+        "5": 3,
+        "6": 3
+      },
+      "col_width": 1,
+      "tabs": [{
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "var numDBConns = this.datasource.dbconns ? this.datasource.dbconns.length : 0;\n\nvar container = $(\"<div style='margin-top: auto; margin-bottom: auto; height: 100%; padding:5px'></div>\");\ncontainer.append($(\"<h2><i class='material-icons'>compare_arrows</i> DB Connections</h2>\").css({\"text-align\": \"center\"}).addClass(\"section-title\"));\ncontainer.append($(\"<div>\").html(numDBConns).css({\"text-align\": \"center\", \"font-size\": \"80px\",\"padding-top\": \"30px\"}));\n\nreturn container;"
+            }],
+            "height": 3,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": false,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 29,
+        "4": 23,
+        "5": 25,
+        "6": 29,
+        "7": 19
+      },
+      "col": {
+        "3": 1,
+        "4": 2,
+        "5": 1,
+        "6": 1,
+        "7": 2
+      },
+      "col_width": 1,
+      "tabs": [{
+        "widgets": [{
+          "type": "pieChart",
+          "settings": {
+            "graphTitle": "<i class='material-icons'>storage</i> Disk Space",
+            "_datatype": "dynamic",
+            "data": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "var avail = (this.datasource.stats[\"diskFree(GB)\"] / this.datasource.stats[\"totalDisk(GB)\"]) * 100;\n\nreturn [{x: null, y: 100 - avail}, {x: null, y: avail}];"
+            }],
+            "include_legend": false,
+            "sizeInBlocks": 4,
+            "colors": "[\"#6E8592\", \"rgb(204, 204, 204)\"]",
+            "label_color": "#000000",
+            "container_width": "100"
+          }
+        }, {
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \nvar diskUsed = Math.round(parseFloat(this.datasource.stats[\"totalDisk(GB)\"])) - Math.round(parseFloat(this.datasource.stats[\"diskFree(GB)\"]));\n\n\nreturn $(\"<div>\").html(diskUsed + \" GB\").css({\"text-align\": \"center\", \"font-size\": \"30px\", \"color\": \"black\"});"
+            }],
+            "height": 1,
+            "container_width": "100"
+          }
+        }, {
+          "type": "lineGraph",
+          "settings": {
+            "_datatype": "dynamic",
+            "data": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \n\nvar diskHistory = this.datasource.history[\"diskFree(GB)\"];\nvar totalDisk = this.datasource.history[\"totalDisk(GB)\"];\n\nvar output = [];\n\n$.each(diskHistory, function (propName, value) {\n    var obj = {\n        x: propName,\n        y: totalDisk - value\n    };\n    output.push(obj);\n});\n\nreturn output;"
+            }],
+            "sizeInBlocks": 4,
+            "rangeTitle": "GB",
+            "domainTitle": "",
+            "title_color": "#5EA7CF",
+            "axis_color": "#CCCCCC",
+            "line_color": "#5EA7CF",
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": false,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 29,
+        "4": 43,
+        "6": 29,
+        "7": 19
+      },
+      "col": {
+        "3": 2,
+        "4": 3,
+        "6": 2,
+        "7": 3
+      },
+      "col_width": 1,
+      "tabs": [{
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \nvar triggers = this.datasource.stats.triggered;\n\n//{backlog: 0, dropped: 0, failed: 0, succeeded: 0}\n\nvar container = $(\"<div style='margin-top: auto; margin-bottom: auto; height: 100%; padding:5px;'></div>\");\ncontainer.append($(\"<h2>\").html(\"<i class='material-icons'>input</i> Triggers\").css({\"text-align\": \"center\"}).addClass(\"section-title\"));\ncontainer.append($(\"<div>\").html(\"Backlog: <span style='float:right;margin-right:30px;'>\" + triggers.backlog + \"</span>\").css({\"text-align\": \"left\", \"font-size\": \"25px\", \"padding-top\": \"15px\", \"margin-left\": \"30px\"}));\ncontainer.append($(\"<div>\").html(\"Dropped: <span style='float:right;margin-right:30px;'>\" + triggers.dropped + \"</span>\").css({\"text-align\": \"left\", \"font-size\": \"25px\", \"margin-left\": \"30px\"}));\ncontainer.append($(\"<div>\").html(\"Failed: <span style='float:right;margin-right:30px;'>\" + triggers.failed + \"</span>\").css({\"text-align\": \"left\", \"font-size\": \"25px\", \"margin-left\": \"30px\"}));\ncontainer.append($(\"<div>\").html(\"Succeeded: <span style='float:right;margin-right:30px;'>\" + triggers.succeeded + \"</span>\").css({\"text-align\": \"left\", \"font-size\": \"25px\", \"margin-left\": \"30px\"}));\n\n/*\nvar container = $(\"<div style='margin-top: auto; margin-bottom: auto; height: 100%; padding:10px'></div>\");\ncontainer.append($(\"<h2>\").html(\"Free Disk Space\").css({\"text-align\": \"center\"}).addClass(\"section-title\"));\ncontainer.append($(\"<div>\").html(freeDisk + \" GB\").css({\"text-align\": \"center\", \"font-size\": \"40px\",\"padding-top\": \"40px\"}));\n*/\n\nreturn container;\n"
+            }],
+            "height": 3,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": false,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 49,
+        "4": 5,
+        "6": 49
+      },
+      "col": {
+        "3": 1,
+        "4": 2,
+        "6": 1
+      },
+      "col_width": "3",
+      "tabs": [{
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "selectedEdge",
+              "_debug": false,
+              "incoming_parser": "var container = $(\"<div>\").css({\"text-align\": \"center\"});\ncontainer.append($(\"<span>\").text(\"Edge: \").css({\"font-size\": \"20px\"}));\ncontainer.append($(\"<h2>\").text(this.datasource.name).css({\"text-align\": \"center\",\"font-size\": \"45px\", \"display\": \"inline-block\"}));\n\nreturn container;"
+            }],
+            "height": 1,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": false,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 53,
+        "4": 5,
+        "5": 41,
+        "8": 53
+      },
+      "col": {
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "8": 1
+      },
+      "col_width": 1,
+      "tabs": [{
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "static",
+            "widgetContent": "<div><i class=\"material-icons\" style=\"font-size:40px;\">router</i><div style=\"font-size:30px;display:inline-block;padding-left:10px;\">Select Edge</div></div>",
+            "height": 1,
+            "container_width": "100"
+          }
+        }, {
+          "type": "grouping_list",
+          "settings": {
+            "list_name": "",
+            "_datatype": "dynamic",
+            "list_data": [{
+              "dsName": "allEdges",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \nreturn this.datasource;"
+            }],
+            "selected_item": [{
+              "dsName": "selectedEdge",
+              "_debug": false,
+              "outgoing_parser": "// default - return the value for the widget \nreturn this.widget;"
+            }],
+            "status_attribute": "isConnected",
+            "group_by_attributes": "[\"type\",\"state\",\"city\"]",
+            "block_height": 18,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": false,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 93,
+        "4": 9,
+        "5": 81,
+        "8": 93
+      },
+      "col": {
+        "3": 1,
+        "4": 2,
+        "5": 1,
+        "8": 1
+      },
+      "col_width": "3",
+      "tabs": [{
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "selectedEdge",
+              "_debug": false,
+              "incoming_parser": "var maxPerRow = 4;\nvar backgroundColor = \"green\";\nvar textColor = \"white\";\n\nvar displayOptionsForKey = {\n    \"broker_auth_port\": {\n        \"displayName\": \"Broker Auth Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"broker_port\": {\n        \"displayName\": \"Broker Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"broker_tls_port\": {\n        \"displayName\": \"Broker TLS Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"broker_ws_auth_port\": {\n    \t\"displayName\": \"Broker WS Auth Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n\t},\n    \"broker_ws_port\": {\n        \"displayName\": \"Broker WS Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"broker_wss_port\": {\n        \"displayName\": \"Broker WSS Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"communication_style\": {\"ignore\": true},\n    \"description\": {\n        \"displayName\": \"Description\",\n        \"displayIfEmpty\": false,\n        \"group\": \"base\"\n    },\n    \"edge_key\": {\"ignore\": true},\n    \"first_talked\": {\"ignore\": true},\n    \"isConnected\": {\"ignore\": true},\n    \"last_seen_version\": {\n        \"displayName\": \"Version\",\n        \"displayIfEmpty\": true,\n        \"group\": \"base\"\n    },\n    \"last_talked\": {\"ignore\": true},\n    \"local_addr\": {\n        \"displayName\": \"Address\",\n        \"displayIfEmpty\": true,\n        \"icon\": \"language\",\n        \"group\": \"base\"\n    },\n    \"local_port\": {\n        \"displayName\": \"Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"location\": {\n        \"displayName\": \"Location\",\n        \"displayIfEmpty\": false,\n        \"group\": \"base\"\n    },\n    \"mac_address\": {\n        \"displayName\": \"MAC Address\",\n        \"displayIfEmpty\": false,\n        \"group\": \"base\",\n        \"ignore\": true\n    },\n    \"name\": {\"ignore\": true},\n    \"novi_system_key\": {\"ignore\": true},\n    \"policy_name\": {\"ignore\": true},\n    \"public_addr\": {\n        \"displayName\": \"Public Address\",\n        \"displayIfEmpty\": false,\n        \"icon\": \"language\",\n        \"group\": \"base\"\n    },\n    \"public_port\": {\n        \"displayName\": \"Public Port\",\n        \"displayIfEmpty\": false,\n        \"group\": \"ports\"\n    },\n    \"resolver_func\": {\"ignore\": true},\n    \"sync_edge_tables\": {\"ignore\": true},\n    \"system_key\": {\"ignore\": true},\n    \"system_secret\": {\"ignore\": true}\n};\n\n//first build an array of what we want to display, so we can have a count\n/*\nvar thingsToDisplay = [];\n$.each(this.datasource, function(propName, value) {\n    if (propName in displayOptionsForKey) {\n        if (!displayOptionsForKey[propName].ignore) {\n            if ((value === undefined || value === null || value === \"undefined\") && displayOptionsForKey[propName].displayIfEmpty) {\n                console.log('value is undefined but still displaying');\n                var displayObj = {\n                    \"key\": propName,\n                \t\"name\": displayOptionsForKey[propName].displayName,\n                \t\"value\": value\n            \t}\n            \tthingsToDisplay.push(displayObj);\n            } else if (value !== undefined && value !== null && value !== \"undefined\") {\n                console.log(\"value is defined\");\n                var displayObj = {\n                    \"key\": propName,\n                \t\"name\": displayOptionsForKey[propName].displayName,\n                \t\"value\": value\n            \t}\n            \tthingsToDisplay.push(displayObj);\n            }\n        }\n    } else {\n        var displayObj = {\n            \"key\": propName,\n            \"name\": propName,\n            \"value\": value\n        };\n        thingsToDisplay.push(displayObj);\n    }\n});\n\nvar container = $(\"<table>\").css({\"width\":\"100%\",\"border-spacing\": \"5px\", \"border-collapse\": \"separate\"});\n\nvar numOfRowsNeeded = Math.ceil(thingsToDisplay.length / maxPerRow);\n\nvar index = 0;\nfor (var x = 1; x <= numOfRowsNeeded; x++) {\n    var row = $(\"<tr>\");\n    for (var y = 1; y <= maxPerRow; y++) {\n        if (index == thingsToDisplay.length){break;}\n        var cell = $(\"<td>\").html(thingsToDisplay[index].name + \": \" + thingsToDisplay[index].value);\n        cell.css({\"background-color\": backgroundColor, \"color\": textColor, \"padding\": \"10px\", \"font-size\": \"16px\",\"border-radius\": \"10px\"});\n        if (displayOptionsForKey[thingsToDisplay[index].key] && displayOptionsForKey[thingsToDisplay[index].key].icon) {\n            cell.append($(\"<i>\" + displayOptionsForKey[thingsToDisplay[index].key].icon + \"</i>\").addClass(\"material-icons\").css({\"float\": \"right\"}));\n        }\n        row.append(cell);\n        index++;\n    }\n    container.append(row);\n}\n*/\nvar that = this;\nvar container = $(\"<div>\");\n\nfunction buildGroup(groupKey, groupDisplayName, stylingForItems) {\n    var group = $(\"<div>\").html(groupDisplayName).css({\"font-size\": \"15px\"});\n    var table = $(\"<table>\").css({\"width\":\"100%\",\"border-spacing\": \"5px\", \"border-collapse\": \"separate\"});\n    \n    var numOfItems = 0;\n    var row = $(\"<tr>\");\n    \n    //lets loop through all props provided via datasource\n    $.each(that.datasource, function (propName, value) {\n        //first check group\n        if (propName in displayOptionsForKey) {\n            if (!displayOptionsForKey[propName].ignore) {\n                if (displayOptionsForKey[propName].group === groupKey) {\n                    //see if we need to make a new row\n                    if (numOfItems > 0 && numOfItems % maxPerRow === 0) {\n                        //append the existing row\n                        table.append(row);\n                        row = $(\"<tr>\");\n                    }\n                    var dispVal = \"\";\n                    if (that.datasource[propName] !== undefined && that.datasource[propName] !== null && that.datasource[propName] !== \"undefined\") {\n                        dispVal = that.datasource[propName];\n                    }\n                    var cell = $(\"<td>\").html(displayOptionsForKey[propName].displayName + \": \" + dispVal);\n                    cell.css(stylingForItems);\n                    if (displayOptionsForKey[propName].icon) {\n                        cell.append($(\"<i>\" + displayOptionsForKey[propName].icon + \"</i>\").addClass(\"material-icons\").css({\"float\": \"right\"}));\n                    }\n                    row.append(cell);\n                    numOfItems++;\n                }\n            }\n        } else {\n            //no options defined, treat as custom\n            if (groupKey === \"custom\") {\n                if (numOfItems > 0 && numOfItems % maxPerRow === 0) {\n                    //append the existing row\n                    table.append(row);\n                    row = $(\"<tr>\");\n                }\n                var cell = $(\"<td>\").html(propName + \": \" + that.datasource[propName]);\n                cell.css(stylingForItems);\n                row.append(cell);\n                numOfItems++;\n            }\n        }\n    });\n    \n    table.append(row);\n    group.append(table);\n    return group;\n}\n\n//cell.css({\"background-color\": backgroundColor, \"color\": textColor, \"padding\": \"10px\", \"font-size\": \"16px\",\"border-radius\": \"10px\"});\n\ncontainer.append(buildGroup(\"base\", \"<i class='material-icons'>info_outline</i> Details\", {\"padding\": \"10px\", \"font-size\": \"16px\", \"border-radius\": \"10px\", \"border\": \"1px solid black\"}));\ncontainer.append(buildGroup(\"ports\", \"<i class='material-icons'>device_hub</i> Ports\", {\"padding\": \"10px\", \"font-size\": \"16px\", \"border-radius\": \"10px\", \"background-color\": \"#6E8592\", \"color\": \"white\"}));\ncontainer.append(buildGroup(\"custom\", \"<i class='material-icons'>build</i> Custom\", {\"padding\": \"10px\", \"font-size\": \"16px\", \"border-radius\": \"10px\", \"background-color\": \"#4A4A4A\", \"color\": \"white\"}));\n\n\n\nreturn container;"
+            }],
+            "height": 6,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }, {
+      "pane_type": true,
+      "width": 1,
+      "display_header": false,
+      "header_theme": "primary",
+      "row": {
+        "3": 107,
+        "4": 51,
+        "7": 93,
+        "10": 105
+      },
+      "col": {
+        "3": 1,
+        "4": 2,
+        "7": 1,
+        "10": 1
+      },
+      "col_width": "3",
+      "tabs": [{
+        "title": "Logs - Std Out",
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \nreturn this.datasource.logs.stdout;"
+            }],
+            "height": 4,
+            "container_width": "100"
+          }
+        }]
+      }, {
+        "title": "Logs - Std Err",
+        "widgets": [{
+          "type": "html",
+          "settings": {
+            "_datatype": "dynamic",
+            "widgetContent": [{
+              "dsName": "edgeMetrics",
+              "_debug": false,
+              "incoming_parser": "// default - return the value for the datasource \nreturn this.datasource.logs.stderr;"
+            }],
+            "height": 4,
+            "container_width": "100"
+          }
+        }]
+      }]
+    }],
+    "datasources": [{
+      "name": "allEdges",
+      "type": "edge_list",
+      "settings": {
+        "refresh_time": "50000"
+      }
+    }, {
+      "name": "selectedEdge",
+      "type": "dashboardEvent",
+      "settings": {}
+    }, {
+      "name": "edgeMetrics",
+      "type": "edge_metrics",
+      "settings": {
+        "refresh_time": "50000",
+        "_datatype": "dynamic",
+        "edge_name": [{
+          "dsName": "selectedEdge",
+          "_debug": false,
+          "incoming_parser": "// default - return the value for the datasource \nreturn this.datasource.name;"
+        }]
+      }
+    }],
+    "columns": 4,
+    "userPerms": {
+      "editableAttributes": {},
+      "passwordMod": false
+    },
+    "style": "{\"portal\":{\"background\":\"rgba(255,255,255,1)\",\"fontFamily\":\"\\\"Helvetica Neue\\\",Helvetica,Arial,sans-serif\"},\"panes\":{\"headingHeight\":\"30px\",\"primaryBackgroundColor\":\"#f5f5f5\",\"primaryHeadingBackgroundColor\":\"#6E8592\",\"primaryHeadingFontSize\":\"16px\",\"primaryHeadingTextColor\":\"#f5f5f5\",\"primaryBorder\":\"2px solid #D8D8D8\",\"primaryBorderRadius\":\"4px\",\"primaryBoxShadow\":\"rgba(0,0,0,.2) 5px 5px 7px 0\",\"secondaryBackgroundColor\":\"rgba(110,133,146,1)\",\"secondaryHeadingBackgroundColor\":\"rgba(245,245,245,1)\",\"secondaryHeadingFontSize\":\"16px\",\"secondaryHeadingTextColor\":\"#6E8592\",\"secondaryBorder\":\"2px solid rgba(110,133,146,1)\",\"secondaryBorderRadius\":\"4px\",\"secondaryBoxShadow\":\"rgba(0,0,0,.2) 5px 5px 7px 0\",\"tabBackgroundColor\":\"rgba(221,221,221,1)\",\"tabTextColor\":\"rgba(51,51,51,1)\",\"activeTabTextColor\":\"rgba(51,51,51,1)\",\"activeTabUnderlineColor\":\"#6E8592\",\"border\":\"\"},\"widgets\":{\"background\":\"transparent\",\"headingFontSize\":\"18px\",\"headingTextColor\":\"rgba(51,51,51,1)\",\"headingFontWeight\":\"400\",\"border\":\"thin solid transparent\",\"bodyFontSize\":\"12px\",\"bodyTextColor\":\"rgba(0,0,0,1)\"},\"forms\":{\"formBackground\":\"rgba(221,221,221,1)\",\"textInputBackgroundColor\":\"#f5f5f5\",\"textInputTextColor\":\"rgba(51,51,51,1)\",\"numberInputBackgroundColor\":\"#f5f5f5\",\"numberInputTextColor\":\"rgba(51,51,51,1)\"},\"listWidget\":{\"backgroundColor\":\"transparent\",\"itemColor\":\"rgba(0,0,0,1)\",\"hoverBackgroundColor\":\"rgba(221,221,221,1)\",\"hoverTextColor\":\"rgba(0,0,0,1)\",\"activeBackgroundColor\":\"#607d8b\",\"activeTextColor\":\"#f5f5f5\"}}"
+  }
+}
