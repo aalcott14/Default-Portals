@@ -1,5 +1,5 @@
 {
-  "grouping_edge_list_v1": {
+  "v1_grouping_edge_list": {
     "version": 1,
     "allow_edit": true,
     "plugins": [],
@@ -523,5 +523,5 @@
     },
     "style": "{\"portal\":{\"background\":\"rgba(255,255,255,1)\",\"fontFamily\":\"\\\"Helvetica Neue\\\",Helvetica,Arial,sans-serif\"},\"panes\":{\"headingHeight\":\"30px\",\"primaryBackgroundColor\":\"#f5f5f5\",\"primaryHeadingBackgroundColor\":\"#6E8592\",\"primaryHeadingFontSize\":\"16px\",\"primaryHeadingTextColor\":\"#f5f5f5\",\"primaryBorder\":\"2px solid #D8D8D8\",\"primaryBorderRadius\":\"4px\",\"primaryBoxShadow\":\"rgba(0,0,0,.2) 5px 5px 7px 0\",\"secondaryBackgroundColor\":\"rgba(110,133,146,1)\",\"secondaryHeadingBackgroundColor\":\"rgba(245,245,245,1)\",\"secondaryHeadingFontSize\":\"16px\",\"secondaryHeadingTextColor\":\"#6E8592\",\"secondaryBorder\":\"2px solid rgba(110,133,146,1)\",\"secondaryBorderRadius\":\"4px\",\"secondaryBoxShadow\":\"rgba(0,0,0,.2) 5px 5px 7px 0\",\"tabBackgroundColor\":\"rgba(221,221,221,1)\",\"tabTextColor\":\"rgba(51,51,51,1)\",\"activeTabTextColor\":\"rgba(51,51,51,1)\",\"activeTabUnderlineColor\":\"#6E8592\",\"border\":\"\"},\"widgets\":{\"background\":\"transparent\",\"headingFontSize\":\"18px\",\"headingTextColor\":\"rgba(51,51,51,1)\",\"headingFontWeight\":\"400\",\"border\":\"thin solid transparent\",\"bodyFontSize\":\"12px\",\"bodyTextColor\":\"rgba(0,0,0,1)\"},\"forms\":{\"formBackground\":\"rgba(221,221,221,1)\",\"textInputBackgroundColor\":\"#f5f5f5\",\"textInputTextColor\":\"rgba(51,51,51,1)\",\"numberInputBackgroundColor\":\"#f5f5f5\",\"numberInputTextColor\":\"rgba(51,51,51,1)\"},\"listWidget\":{\"backgroundColor\":\"transparent\",\"itemColor\":\"rgba(0,0,0,1)\",\"hoverBackgroundColor\":\"rgba(221,221,221,1)\",\"hoverTextColor\":\"rgba(0,0,0,1)\",\"activeBackgroundColor\":\"#607d8b\",\"activeTextColor\":\"#f5f5f5\"}}"
   },
-  grouping_edge_list_v2: {}
+  "v2_grouping_edge_list": {}
 }
