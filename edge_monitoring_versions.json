@@ -580,11 +580,6 @@
                 "promise": {},
                 "shouldBlockAllWidgets": false,
                 "url": "https://use.fontawesome.com/5623e55c0f.js"
-            },
-            {
-                "promise": {},
-                "shouldBlockAllWidgets": false,
-                "url": "https://code.jquery.com/jquery-3.2.1.min.js"
             }
         ],
         "flyoutWidgetLayout": {
