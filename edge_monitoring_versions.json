@@ -533,7 +533,7 @@
             "xxs": 2
         },
         "currentBreakpointForFlyoutWidgets": "lg",
-        "currentBreakpointForPanes": "xxs",
+        "currentBreakpointForPanes": "xs",
         "currentBreakpointsForWidgets": {
             "0e6a2755-91c7-4cbf-bf11-8cb1b59d4b0b": "xxs",
             "129851f4-e531-447c-bdd9-563e554865e8": "lg",
@@ -575,6 +575,18 @@
                 "type": "LOCAL_DATASOURCE_PLUGIN"
             }
         },
+        "externalScripts": [
+            {
+                "promise": {},
+                "shouldBlockAllWidgets": false,
+                "url": "https://use.fontawesome.com/5623e55c0f.js"
+            },
+            {
+                "promise": {},
+                "shouldBlockAllWidgets": false,
+                "url": "https://code.jquery.com/jquery-3.2.1.min.js"
+            }
+        ],
         "flyoutWidgetLayout": {
             "lg": [
                 {
@@ -1941,6 +1953,7 @@
         },
         "widgets": {
             "0140c36a-7996-46ef-9bf6-47315d2a4c0f": {
+                "externalScripts": [],
                 "id": "0140c36a-7996-46ef-9bf6-47315d2a4c0f",
                 "props": {
                     "HAS_UNIQUE_STYLE": true,
@@ -1995,6 +2008,7 @@
                 "type": "LINE_CHART_WIDGET_COMPONENT"
             },
             "10aa6123-c2de-4ad3-a879-21549bd24049": {
+                "externalScripts": [],
                 "id": "10aa6123-c2de-4ad3-a879-21549bd24049",
                 "props": {
                     "HAS_UNIQUE_STYLE": true,
@@ -2048,6 +2062,7 @@
                 "type": "LINE_CHART_WIDGET_COMPONENT"
             },
             "21719d59-abdd-4851-9c7f-2ccd653f4208": {
+                "externalScripts": [],
                 "id": "21719d59-abdd-4851-9c7f-2ccd653f4208",
                 "props": {
                     "html": {
@@ -2071,6 +2086,7 @@
                 "type": "HTML_WIDGET_COMPONENT"
             },
             "2c82260f-a47f-4cad-9627-94790635939f": {
+                "externalScripts": [],
                 "id": "2c82260f-a47f-4cad-9627-94790635939f",
                 "props": {
                     "html": {
@@ -2094,6 +2110,7 @@
                 "type": "HTML_WIDGET_COMPONENT"
             },
             "34d4f22a-95a9-468c-ae13-1d0c77183c63": {
+                "externalScripts": [],
                 "id": "34d4f22a-95a9-468c-ae13-1d0c77183c63",
                 "props": {
                     "html": {
@@ -2117,6 +2134,7 @@
                 "type": "HTML_WIDGET_COMPONENT"
             },
             "3820e08f-d819-4b60-8c2a-2664133b04ad": {
+                "externalScripts": [],
                 "id": "3820e08f-d819-4b60-8c2a-2664133b04ad",
                 "props": {
                     "dataType": "DYNAMIC_DATA_TYPE",
@@ -2136,7 +2154,7 @@
                             "value": {
                                 "CSS": "\n",
                                 "HTML": "\u003cdiv id=\"details\"\u003e\u003c/div\u003e\n\n\n",
-                                "JavaScript": "//JavaScript\nvar maxPerRow = 4;\nvar backgroundColor = \"green\";\n\nvar displayOptionsForKey = {\n    \"broker_auth_port\": {\n        \"displayName\": \"Broker Auth Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"broker_port\": {\n        \"displayName\": \"Broker Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"broker_tls_port\": {\n        \"displayName\": \"Broker TLS Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"broker_ws_auth_port\": {\n    \t\"displayName\": \"Broker WS Auth Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n\t},\n    \"broker_ws_port\": {\n        \"displayName\": \"Broker WS Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"broker_wss_port\": {\n        \"displayName\": \"Broker WSS Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"communication_style\": {\"ignore\": true},\n    \"description\": {\n        \"displayName\": \"Description\",\n        \"displayIfEmpty\": false,\n        \"group\": \"base\"\n    },\n    \"edge_key\": {\"ignore\": true},\n    \"first_talked\": {\"ignore\": true},\n    \"isConnected\": {\"ignore\": true},\n    \"last_seen_version\": {\n        \"displayName\": \"Version\",\n        \"displayIfEmpty\": true,\n        \"group\": \"base\"\n    },\n    \"last_talked\": {\"ignore\": true},\n    \"local_addr\": {\n        \"displayName\": \"Address\",\n        \"displayIfEmpty\": true,\n        \"icon\": \"language\",\n        \"group\": \"base\"\n    },\n    \"local_port\": {\n        \"displayName\": \"Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"location\": {\n        \"displayName\": \"Location\",\n        \"displayIfEmpty\": false,\n        \"group\": \"base\",\n        \"icon\": \"'fa fa-map-marker'\"\n    },\n    \"mac_address\": {\n        \"displayName\": \"MAC Address\",\n        \"displayIfEmpty\": false,\n        \"group\": \"base\",\n        \"ignore\": true\n    },\n    \"name\": {\"ignore\": true},\n    \"novi_system_key\": {\"ignore\": true},\n    \"policy_name\": {\"ignore\": true},\n    \"public_addr\": {\n        \"displayName\": \"Public Address\",\n        \"displayIfEmpty\": false,\n        \"icon\": \"'fa fa-globe'\",\n        \"group\": \"base\"\n    },\n    \"public_port\": {\n        \"displayName\": \"Public Port\",\n        \"displayIfEmpty\": false,\n        \"group\": \"ports\"\n    },\n    \"resolver_func\": {\"ignore\": true},\n    \"sync_edge_tables\": {\"ignore\": true},\n    \"system_key\": {\"ignore\": true},\n    \"system_secret\": {\"ignore\": true}\n};\n\nvar that = this;\nvar container = $(\"\u003cdiv\u003e\");\n\nfunction buildGroup(groupKey, groupDisplayName, stylingForItems) {\n    var group = $(\"\u003cdiv\u003e\").html(groupDisplayName).css({\"font-size\": \"15px\"});\n    var table = $(\"\u003ctable\u003e\").css({\"width\":\"100%\",\"border-spacing\": \"5px\", \"border-collapse\": \"separate\"});\n    \n    var numOfItems = 0;\n    var row = $(\"\u003ctr\u003e\");\n    \n    //lets loop through all props provided via datasource\n    $.each(that.datasource, function (propName, value) {\n        //first check group\n        if (propName in displayOptionsForKey) {\n            if (!displayOptionsForKey[propName].ignore) {\n                if (displayOptionsForKey[propName].group === groupKey) {\n                    //see if we need to make a new row\n                    if (numOfItems \u003e 0 \u0026\u0026 numOfItems % maxPerRow === 0) {\n                        //append the existing row\n                        table.append(row);\n                        row = $(\"\u003ctr\u003e\");\n                    }\n                    var dispVal = \"\";\n                    if (that.datasource[propName] !== undefined \u0026\u0026 that.datasource[propName] !== null \u0026\u0026 that.datasource[propName] !== \"undefined\") {\n                        dispVal = that.datasource[propName];\n                    }\n                    var cell = $(\"\u003ctd\u003e\").html(displayOptionsForKey[propName].displayName + \": \" + dispVal);\n                    cell.css(stylingForItems);\n                    if (displayOptionsForKey[propName].icon) {\n                        cell.append($(\"\u003ci class=\" + displayOptionsForKey[propName].icon + \" aria-hidden='true'\u003e\u003c/i\u003e\").css(\"float\", \"right\"));\n                    }\n                    row.append(cell);\n                    numOfItems++;\n                }\n            }\n        } else {\n            //no options defined, treat as custom\n            if (groupKey === \"custom\") {\n                if (numOfItems \u003e 0 \u0026\u0026 numOfItems % maxPerRow === 0) {\n                    //append the existing row\n                    table.append(row);\n                    row = $(\"\u003ctr\u003e\");\n                }\n                var cell = $(\"\u003ctd\u003e\").html(propName + \": \" + that.datasource[propName]);\n                cell.css(stylingForItems);\n                row.append(cell);\n                numOfItems++;\n            }\n        }\n    });\n    \n    table.append(row);\n    group.append(table);\n    return group;\n}\n\ncontainer.append(buildGroup(\"base\", \"\u003ci class='fa fa-info-circle' aria-hidden='true' style='margin-right:5px;'\u003e\u003c/i\u003eDetails\", {\"padding\": \"10px\", \"font-size\": \"16px\", \"border-radius\": \"10px\", \"border\": \"1px solid black\"}));\ncontainer.append(buildGroup(\"ports\", \"\u003ci class='fa fa-share-alt' aria-hidden='true' style='margin-right:5px;'\u003e\u003c/i\u003ePorts\", {\"padding\": \"10px\", \"font-size\": \"16px\", \"border-radius\": \"10px\", \"background-color\": \"#6E8592\", \"color\": \"white\"}));\ncontainer.append(buildGroup(\"custom\", \"\u003ci class='fa fa-wrench' aria-hidden='true' style='margin-right:5px;'\u003e\u003c/i\u003eCustom\", {\"padding\": \"10px\", \"font-size\": \"16px\", \"border-radius\": \"10px\", \"background-color\": \"#4A4A4A\", \"color\": \"white\"}));\n\n\nconst details = document.getElementById('details');\nif (details.hasChildNodes()) {\n    details.innerHTML = '';\n    details.append(container[0])\n} else {\n    details.append(container[0])\n}\n"
+                                "JavaScript": "//JavaScript\nvar maxPerRow = 4;\nvar backgroundColor = \"green\";\nvar textColor = \"white\";\n\nvar displayOptionsForKey = {\n    \"broker_auth_port\": {\n        \"displayName\": \"Broker Auth Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"broker_port\": {\n        \"displayName\": \"Broker Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"broker_tls_port\": {\n        \"displayName\": \"Broker TLS Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"broker_ws_auth_port\": {\n    \t\"displayName\": \"Broker WS Auth Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n\t},\n    \"broker_ws_port\": {\n        \"displayName\": \"Broker WS Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"broker_wss_port\": {\n        \"displayName\": \"Broker WSS Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"communication_style\": {\"ignore\": true},\n    \"description\": {\n        \"displayName\": \"Description\",\n        \"displayIfEmpty\": false,\n        \"group\": \"base\"\n    },\n    \"edge_key\": {\"ignore\": true},\n    \"first_talked\": {\"ignore\": true},\n    \"isConnected\": {\"ignore\": true},\n    \"last_seen_version\": {\n        \"displayName\": \"Version\",\n        \"displayIfEmpty\": true,\n        \"group\": \"base\"\n    },\n    \"last_talked\": {\"ignore\": true},\n    \"local_addr\": {\n        \"displayName\": \"Address\",\n        \"displayIfEmpty\": true,\n        \"icon\": \"language\",\n        \"group\": \"base\"\n    },\n    \"local_port\": {\n        \"displayName\": \"Port\",\n        \"displayIfEmpty\": true,\n        \"group\": \"ports\"\n    },\n    \"location\": {\n        \"displayName\": \"Location\",\n        \"displayIfEmpty\": false,\n        \"group\": \"base\",\n        \"icon\": \"'fa fa-map-marker'\"\n    },\n    \"mac_address\": {\n        \"displayName\": \"MAC Address\",\n        \"displayIfEmpty\": false,\n        \"group\": \"base\",\n        \"ignore\": true\n    },\n    \"name\": {\"ignore\": true},\n    \"novi_system_key\": {\"ignore\": true},\n    \"policy_name\": {\"ignore\": true},\n    \"public_addr\": {\n        \"displayName\": \"Public Address\",\n        \"displayIfEmpty\": false,\n        \"icon\": \"'fa fa-globe'\",\n        \"group\": \"base\"\n    },\n    \"public_port\": {\n        \"displayName\": \"Public Port\",\n        \"displayIfEmpty\": false,\n        \"group\": \"ports\"\n    },\n    \"resolver_func\": {\"ignore\": true},\n    \"sync_edge_tables\": {\"ignore\": true},\n    \"system_key\": {\"ignore\": true},\n    \"system_secret\": {\"ignore\": true}\n};\n\nvar that = this;\nvar container = $(\"\u003cdiv\u003e\");\n\nfunction buildGroup(groupKey, groupDisplayName, stylingForItems) {\n    var group = $(\"\u003cdiv\u003e\").html(groupDisplayName).css({\"font-size\": \"15px\"});\n    var table = $(\"\u003ctable\u003e\").css({\"width\":\"100%\",\"border-spacing\": \"5px\", \"border-collapse\": \"separate\"});\n    \n    var numOfItems = 0;\n    var row = $(\"\u003ctr\u003e\");\n    \n    //lets loop through all props provided via datasource\n    $.each(that.datasource, function (propName, value) {\n        //first check group\n        if (propName in displayOptionsForKey) {\n            if (!displayOptionsForKey[propName].ignore) {\n                if (displayOptionsForKey[propName].group === groupKey) {\n                    //see if we need to make a new row\n                    if (numOfItems \u003e 0 \u0026\u0026 numOfItems % maxPerRow === 0) {\n                        //append the existing row\n                        table.append(row);\n                        row = $(\"\u003ctr\u003e\");\n                    }\n                    var dispVal = \"\";\n                    if (that.datasource[propName] !== undefined \u0026\u0026 that.datasource[propName] !== null \u0026\u0026 that.datasource[propName] !== \"undefined\") {\n                        dispVal = that.datasource[propName];\n                    }\n                    var cell = $(\"\u003ctd\u003e\").html(displayOptionsForKey[propName].displayName + \": \" + dispVal);\n                    cell.css(stylingForItems);\n                    if (displayOptionsForKey[propName].icon) {\n                        cell.append($(\"\u003ci class=\" + displayOptionsForKey[propName].icon + \" aria-hidden='true'\u003e\u003c/i\u003e\").css(\"float\", \"right\"));\n                    }\n                    row.append(cell);\n                    numOfItems++;\n                }\n            }\n        } else {\n            //no options defined, treat as custom\n            if (groupKey === \"custom\") {\n                if (numOfItems \u003e 0 \u0026\u0026 numOfItems % maxPerRow === 0) {\n                    //append the existing row\n                    table.append(row);\n                    row = $(\"\u003ctr\u003e\");\n                }\n                var cell = $(\"\u003ctd\u003e\").html(propName + \": \" + that.datasource[propName]);\n                cell.css(stylingForItems);\n                row.append(cell);\n                numOfItems++;\n            }\n        }\n    });\n    \n    table.append(row);\n    group.append(table);\n    return group;\n}\n\ncontainer.append(buildGroup(\"base\", \"\u003ci class='fa fa-info-circle' aria-hidden='true' style='margin-right:5px;'\u003e\u003c/i\u003eDetails\", {\"padding\": \"10px\", \"font-size\": \"16px\", \"border-radius\": \"10px\", \"border\": \"1px solid black\"}));\ncontainer.append(buildGroup(\"ports\", \"\u003ci class='fa fa-share-alt' aria-hidden='true' style='margin-right:5px;'\u003e\u003c/i\u003ePorts\", {\"padding\": \"10px\", \"font-size\": \"16px\", \"border-radius\": \"10px\", \"background-color\": \"#6E8592\", \"color\": \"white\"}));\ncontainer.append(buildGroup(\"custom\", \"\u003ci class='fa fa-wrench' aria-hidden='true' style='margin-right:5px;'\u003e\u003c/i\u003eCustom\", {\"padding\": \"10px\", \"font-size\": \"16px\", \"border-radius\": \"10px\", \"background-color\": \"#4A4A4A\", \"color\": \"white\"}));\n\n\nconst details = document.getElementById('details');\nif (details.hasChildNodes()) {\n    details.innerHTML = '';\n    details.append(container[0])\n} else {\n    details.append(container[0])\n}\n"
                             }
                         }
                     },
@@ -2154,6 +2172,7 @@
                 "type": "HTML_WIDGET_COMPONENT"
             },
             "3dbbc7d1-46ee-4011-9dc6-b24f94542ee3": {
+                "externalScripts": [],
                 "id": "3dbbc7d1-46ee-4011-9dc6-b24f94542ee3",
                 "props": {
                     "html": {
@@ -2169,7 +2188,7 @@
                         "value": {
                             "CSS": "\n",
                             "HTML": "\u003cdiv class=\"text-center\"\u003e\n  \u003ch2\u003e\u003ci class=\"fa fa-floppy-o\" aria-hidden=\"true\" style=\"margin-right:10px;\"\u003e\u003c/i\u003eMemory Usage(%)\u003c/h2\u003e\n\u003c/div\u003e\n",
-                            "JavaScript": "//JavaScript"
+                            "JavaScript": "//JavaScript\n"
                         }
                     }
                 },
@@ -2177,6 +2196,7 @@
                 "type": "HTML_WIDGET_COMPONENT"
             },
             "6655330b-c98c-4126-860b-f20daab7a88e": {
+                "externalScripts": [],
                 "id": "6655330b-c98c-4126-860b-f20daab7a88e",
                 "props": {
                     "HAS_UNIQUE_STYLE": true,
@@ -2208,6 +2228,7 @@
                 "type": "PIE_CHART_WIDGET_COMPONENT"
             },
             "7b4d8561-6de3-4bf1-996e-ec6e288fa801": {
+                "externalScripts": [],
                 "id": "7b4d8561-6de3-4bf1-996e-ec6e288fa801",
                 "props": {
                     "HAS_UNIQUE_STYLE": true,
@@ -2229,6 +2250,7 @@
                 "type": "RADIAL_GAUGE_WIDGET_COMPONENT"
             },
             "7b77ccaa-b3ed-4279-9123-15a08fb02d9c": {
+                "externalScripts": [],
                 "id": "7b77ccaa-b3ed-4279-9123-15a08fb02d9c",
                 "props": {
                     "dataType": "DYNAMIC_DATA_TYPE",
@@ -2266,6 +2288,7 @@
                 "type": "HTML_WIDGET_COMPONENT"
             },
             "89f5bfd6-08bf-4b15-abb8-948f1def9e26": {
+                "externalScripts": [],
                 "id": "89f5bfd6-08bf-4b15-abb8-948f1def9e26",
                 "props": {
                     "html": {
@@ -2289,6 +2312,7 @@
                 "type": "HTML_WIDGET_COMPONENT"
             },
             "9c064df8-f032-4655-ac2e-1486356081e7": {
+                "externalScripts": [],
                 "id": "9c064df8-f032-4655-ac2e-1486356081e7",
                 "props": {
                     "HAS_UNIQUE_STYLE": true,
@@ -2321,6 +2345,7 @@
                 "type": "PIE_CHART_WIDGET_COMPONENT"
             },
             "9edf09f7-39c4-4914-b01c-6b8831ee8878": {
+                "externalScripts": [],
                 "id": "9edf09f7-39c4-4914-b01c-6b8831ee8878",
                 "props": {
                     "html": {
@@ -2344,6 +2369,7 @@
                 "type": "HTML_WIDGET_COMPONENT"
             },
             "aa7fede0-de7c-4dd8-a914-cab5c22ea91c": {
+                "externalScripts": [],
                 "id": "aa7fede0-de7c-4dd8-a914-cab5c22ea91c",
                 "props": {
                     "html": {
@@ -2367,6 +2393,7 @@
                 "type": "HTML_WIDGET_COMPONENT"
             },
             "ae88e7a3-c0a9-4c52-bf74-f5e8e0b597f7": {
+                "externalScripts": [],
                 "id": "ae88e7a3-c0a9-4c52-bf74-f5e8e0b597f7",
                 "props": {
                     "html": {
@@ -2390,6 +2417,7 @@
                 "type": "HTML_WIDGET_COMPONENT"
             },
             "brand": {
+                "externalScripts": [],
                 "id": "brand",
                 "props": {
                     "HAS_UNIQUE_STYLE": true,
@@ -2405,6 +2433,7 @@
                 "type": "TEXT_WIDGET_COMPONENT"
             },
             "d3e122e6-d9d6-4502-aac8-05d4dccb72bb": {
+                "externalScripts": [],
                 "id": "d3e122e6-d9d6-4502-aac8-05d4dccb72bb",
                 "props": {
                     "HAS_UNIQUE_STYLE": true,
@@ -2463,10 +2492,12 @@
                 "type": "LINE_CHART_WIDGET_COMPONENT"
             },
             "f78c0825-55bc-438c-802c-96baa21b854c": {
+                "externalScripts": [],
                 "id": "f78c0825-55bc-438c-802c-96baa21b854c",
                 "props": {
                     "HAS_UNIQUE_STYLE": false,
                     "allowSearch": true,
+                    "displayAttribute": "name",
                     "eventTarget": {
                         "dataType": "DYNAMIC_DATA_TYPE",
                         "force_data": [
@@ -2502,6 +2533,7 @@
                 "type": "GROUPING_LIST_WIDGET_COMPONENT"
             },
             "flyoutTitle": {
+                "externalScripts": [],
                 "id": "flyoutTitle",
                 "props": {
                     "HAS_UNIQUE_STYLE": true,
@@ -2516,6 +2548,7 @@
                 "type": "TEXT_WIDGET_COMPONENT"
             },
             "title": {
+                "externalScripts": [],
                 "id": "title",
                 "props": {
                     "HAS_UNIQUE_STYLE": true,
