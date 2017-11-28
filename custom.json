@@ -1,0 +1,172 @@
+{
+    "v1": {
+        "version": 1,
+        "allow_edit": true,
+        "plugins": [],
+        "style": {
+            "portal": {
+                "background": "rgba(255,255,255,1)",
+                "fontFamily": "\"Helvetica Neue\",Helvetica,Arial,sans-serif"
+            },
+            "panes": {
+                "backgroundColor": "#2a2a2a",
+                "border": "thin solid #2a2a2a",
+                "headingHeight": "30px",
+                "primaryHeadingBackgroundColor": "#6E8592",
+                "primaryHeadingFontSize": "12px",
+                "primaryHeadingTextColor": "#f5f5f5",
+                "secondaryHeadingBackgroundColor": "rgba(245,245,245,1)",
+                "secondaryHeadingFontSize": "16px",
+                "secondaryHeadingTextColor": "#6E8592",
+                "primaryBackgroundColor": "#f5f5f5",
+                "primaryBorder": "2px solid #D8D8D8",
+                "primaryBorderRadius": "4px",
+                "primaryBoxShadow": "rgba(0,0,0,.2) 5px 5px 7px 0",
+                "secondaryBackgroundColor": "rgba(110,133,146,1)",
+                "secondaryBorder": "2px solid rgba(110,133,146,1)",
+                "secondaryBorderRadius": "4px",
+                "secondaryBoxShadow": "rgba(0,0,0,.2) 5px 5px 7px 0",
+                "tabBackgroundColor": "rgba(221,221,221,1)",
+                "tabTextColor": "rgba(51,51,51,1)",
+                "activeTabTextColor": "rgba(51,51,51,1)",
+                "activeTabUnderlineColor": "#6E8592"
+            },
+            "widgets": {
+                "background": "transparent",
+                "bodyFontSize": "12px",
+                "bodyTextColor": "rgba(0,0,0,1)",
+                "border": "thin solid transparent",
+                "headingFontSize": "18px",
+                "headingFontWeight": "400",
+                "headingTextColor": "rgba(51,51,51,1)"
+            },
+            "forms": {
+                "numberInputBackgroundColor": "#f5f5f5",
+                "numberInputTextColor": "rgba(51,51,51,1)",
+                "textInputBackgroundColor": "#f5f5f5",
+                "textInputTextColor": "rgba(51,51,51,1)"
+            },
+            "listWidget": {
+                "backgroundColor": "transparent",
+                "hoverBackgroundColor": "rgba(221,221,221,1)",
+                "hoverTextColor": "rgba(51,51,51,1)",
+                "activeBackgroundColor": "#6E8592",
+                "activeTextColor": "rgba(221,221,221,1)",
+                "itemColor": "rgba(0,0,0,1)"
+            }
+        },
+        "panes": [
+            {
+                "pane_type": false,
+                "title": "Hidden Header Pane",
+                "width": 1,
+                "display_header": false,
+                "header_theme": "primary",
+                "row": {
+                    "3": 1
+                },
+                "col": {
+                    "3": 1
+                },
+                "col_width": "3",
+                "tabs": [
+                    {
+                        "widgets": [
+                            {
+                                "type": "text_widget",
+                                "settings": {
+                                    "title": "",
+                                    "size": 30,
+                                    "disp_font": "\"Helvetica Neue\",Helvetica,Arial,sans-serif",
+                                    "font_color": "inherit",
+                                    "text_alignment": "center",
+                                    "italic": false,
+                                    "bold": false,
+                                    "_datatype": "static",
+                                    "textContent": "ClearBlade IOT Portal",
+                                    "sizeInBlocks": 1,
+                                    "animate": true,
+                                    "container_width": "100"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "pane_type": false,
+                "title": "Primary Pane",
+                "width": 1,
+                "display_header": 2,
+                "header_theme": "primary",
+                "row": {
+                    "3": 5,
+                    "5": 5
+                },
+                "col": {
+                    "3": 1,
+                    "5": 1
+                },
+                "col_width": 1,
+                "tabs": [
+                    {
+                        "widgets": []
+                    }
+                ]
+            },
+            {
+                "pane_type": false,
+                "title": "Secondary Pane",
+                "width": 1,
+                "display_header": 2,
+                "header_theme": "secondary",
+                "row": {
+                    "3": 5,
+                    "5": 5
+                },
+                "col": {
+                    "3": 2,
+                    "5": 2
+                },
+                "col_width": 1,
+                "tabs": [
+                    {
+                        "widgets": []
+                    }
+                ]
+            },
+            {
+                "pane_type": true,
+                "title": "Tabbed Pane",
+                "width": 1,
+                "display_header": 2,
+                "header_theme": "primary",
+                "row": {
+                    "3": 5,
+                    "5": 5
+                },
+                "col": {
+                    "3": 3,
+                    "5": 3
+                },
+                "col_width": 1,
+                "tabs": [
+                    {
+                        "title": "One",
+                        "widgets": []
+                    },
+                    {
+                        "title": "Two",
+                        "widgets": []
+                    },
+                    {
+                        "title": "Three",
+                        "widgets": []
+                    }
+                ]
+            }
+        ],
+        "datasources": [],
+        "columns": 3
+    },
+    "v2": {}
