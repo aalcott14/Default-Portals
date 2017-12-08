@@ -2437,7 +2437,7 @@
                         "id": "49000dcb-335d-49cc-ab34-2fe3650fad0a",
                         "incoming_parser": {
                             "isDebugOn": false,
-                            "value": "// default - return the value for the datasource \nlet edge_key;\nfor (let prop in this.datasource[\"history\"]) {\n    edge_key = prop\n}\nvar diskHistory = this.datasource.history[edge_key][\"diskFree(GB)\"];\nvar totalDisk = this.datasource.history[edge_key][\"totalDisk(GB)\"];\n\nvar output = [];\n\n$.each(diskHistory, function (propName, value) {\n    var obj = {\n        timestamp: propName,\n        diskUsed: value\n    };\n    output.push(obj);\n});\n\nreturn output;"
+                            "value": "// default - return the value for the datasource \nlet edge_key;\nfor (let prop in this.datasource[\"history\"]) {\n    edge_key = prop\n}\n\nif (this.datasource.history[edge_key]) {\n    var diskHistory = this.datasource.history[edge_key][\"diskFree(GB)\"];\n    var totalDisk = this.datasource.history[edge_key][\"totalDisk(GB)\"];\n\n    var output = [];\n\n    $.each(diskHistory, function (propName, value) {\n        var obj = {\n            timestamp: propName,\n            diskUsed: value\n        };\n        output.push(obj);\n    });\n\n    return output;\n}\n\n"
                         }
                     },
                     "chartMarginBottom": 0,
